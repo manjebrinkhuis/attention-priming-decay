@@ -1,3 +1,5 @@
+import nibabel as nib
+
 def leading_zeros(string, delimiter='_', n_digits=3, exclude=None):
     """ 
     Returns a new string with added leading zeros.
@@ -82,7 +84,7 @@ def parrec2nii(files,
                store_header=False,
                scaling='dv',
                overwrite=False,
-               cmd=parrec2nii_cmd):
+               cmd="parrec2nii"):
         
     """ 
     Wrapper to use parrec2nii from python
@@ -140,3 +142,24 @@ def convert_to_nifti(in_path, out_path):
     img = nib.load(in_path)
     new = nib.Nifti1Image(img, affine=img.affine, header=img.header.as_analyze_map())       
     nib.save(new, out_path)
+    
+def save_nii(data, aff, fname):
+    # Create nifti image.
+    img = nib.Nifti1Image(data, aff)
+    # Save as nifti.
+    nib.save(img, fname)
+    
+def mni2index(mni):
+    x_, y_, z_ = mni
+    x = (90 - x_) / (90+90) * 90
+    y = (y_ + 126) / (126+90) * 108
+    z = (z_ + 72) / (72+108) * 90
+    return int(x), int(y), int(z)
+
+def index2mni(index):
+    x_, y_, z_ = index    
+    x = (x_ * ((90+90) / 90) - 90) * -1
+    y = (y_ * ((126+90) /108) - 126)
+    z = (z_ * ((72+108) / 90) - 72)    
+    return int(x), int(y), int(z)
+    
