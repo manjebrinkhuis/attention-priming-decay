@@ -1,7 +1,7 @@
 # neuro-docker
 
-Dockerized environment to use nipype, fsl and
-freesurfer (as a mounted volume) and jupyterlab.
+Dockerized environment to use `nipype`, `fsl` and
+`freesurfer` (as a mounted volume) and jupyterlab.
 
 On Linux, `./run_terminal.sh` runs a container, with a mounted
 data directory (change the `/path/to/your/data` according to your system),
@@ -15,5 +15,3 @@ and browse to `localhost:8888`, to work in jupyterlab.
 
 Note that you can also run `fslview` and `freeview` from a terminal
 in jupyterlab.
-
-See https://github.com/kaczmarj/neurodocker for something better
