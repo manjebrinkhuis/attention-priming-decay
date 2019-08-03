@@ -10,5 +10,5 @@ docker run --rm \
     -v /mnt/ext_data:/data/ext \
     -v /mnt/data:/data/host \
     -v /mnt/data/Apps/Linux/freesurfer:/opt/freesurfer \
-    --name neuro-docker \
-    manjebrinkhuis/neuro-docker
+    --name neuro \
+    manjebrinkhuis/neuro
