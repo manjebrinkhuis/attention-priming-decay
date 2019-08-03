@@ -11,3 +11,4 @@ images/
 .ipynb*
 *.pklz
 *.nii.gz
+*.svg
